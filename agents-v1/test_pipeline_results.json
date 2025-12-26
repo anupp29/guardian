@@ -1,0 +1,283 @@
+{
+  "success": true,
+  "execution_trace": [
+    {
+      "agent": "SimulationAgent",
+      "time_ms": 1.068115234375,
+      "paths": 9,
+      "nodes": 9
+    },
+    {
+      "agent": "ImpactReasoningAgent",
+      "time_ms": 4521.123647689819,
+      "explanations": 5
+    },
+    {
+      "agent": "MitigationAgent",
+      "time_ms": 10.741710662841797,
+      "recommendations": 5
+    }
+  ],
+  "results": {
+    "simulation": {
+      "source_vendor_id": "VENDOR_001",
+      "propagation_paths": [
+        {
+          "path": [
+            "VENDOR_001",
+            "VENDOR_002"
+          ],
+          "length": 1,
+          "affected_nodes": [
+            "VENDOR_002"
+          ]
+        },
+        {
+          "path": [
+            "VENDOR_001",
+            "VENDOR_003"
+          ],
+          "length": 1,
+          "affected_nodes": [
+            "VENDOR_003"
+          ]
+        },
+        {
+          "path": [
+            "VENDOR_001",
+            "VENDOR_002",
+            "VENDOR_004"
+          ],
+          "length": 2,
+          "affected_nodes": [
+            "VENDOR_004",
+            "VENDOR_002"
+          ]
+        },
+        {
+          "path": [
+            "VENDOR_001",
+            "VENDOR_002",
+            "VENDOR_005"
+          ],
+          "length": 2,
+          "affected_nodes": [
+            "VENDOR_005",
+            "VENDOR_002"
+          ]
+        },
+        {
+          "path": [
+            "VENDOR_001",
+            "VENDOR_003",
+            "VENDOR_006"
+          ],
+          "length": 2,
+          "affected_nodes": [
+            "VENDOR_003",
+            "VENDOR_006"
+          ]
+        },
+        {
+          "path": [
+            "VENDOR_001",
+            "VENDOR_003",
+            "VENDOR_007"
+          ],
+          "length": 2,
+          "affected_nodes": [
+            "VENDOR_007",
+            "VENDOR_003"
+          ]
+        },
+        {
+          "path": [
+            "VENDOR_001",
+            "VENDOR_002",
+            "VENDOR_004",
+            "VENDOR_008"
+          ],
+          "length": 3,
+          "affected_nodes": [
+            "VENDOR_004",
+            "VENDOR_002",
+            "VENDOR_008"
+          ]
+        },
+        {
+          "path": [
+            "VENDOR_001",
+            "VENDOR_002",
+            "VENDOR_005",
+            "VENDOR_009"
+          ],
+          "length": 3,
+          "affected_nodes": [
+            "VENDOR_005",
+            "VENDOR_009",
+            "VENDOR_002"
+          ]
+        },
+        {
+          "path": [
+            "VENDOR_001",
+            "VENDOR_003",
+            "VENDOR_006",
+            "VENDOR_010"
+          ],
+          "length": 3,
+          "affected_nodes": [
+            "VENDOR_010",
+            "VENDOR_003",
+            "VENDOR_006"
+          ]
+        }
+      ],
+      "total_affected_nodes": 9,
+      "unique_affected_nodes": [
+        "VENDOR_002",
+        "VENDOR_003",
+        "VENDOR_004",
+        "VENDOR_005",
+        "VENDOR_006",
+        "VENDOR_007",
+        "VENDOR_008",
+        "VENDOR_009",
+        "VENDOR_010"
+      ],
+      "metrics": {
+        "max_fan_out": 2,
+        "average_path_length": 2.111111111111111,
+        "max_path_length": 3,
+        "total_paths": 9,
+        "graph_nodes": 10,
+        "graph_edges": 9
+      }
+    },
+    "impact": {
+      "explanations": [
+        {
+          "path": [
+            "VENDOR_001",
+            "VENDOR_002",
+            "VENDOR_004",
+            "VENDOR_008"
+          ],
+          "cause": "Disruption or failure at VENDOR_001",
+          "effect": "Cascades through dependency chain: VENDOR_002 → VENDOR_004 → VENDOR_008",
+          "business_impact": "Potential operational impact affecting 3 downstream components",
+          "uncertainty_notes": "Detailed business impact requires inventory levels, lead times, and dependency criticality data"
+        },
+        {
+          "path": [
+            "VENDOR_001",
+            "VENDOR_002",
+            "VENDOR_005",
+            "VENDOR_009"
+          ],
+          "cause": "Disruption or failure at VENDOR_001",
+          "effect": "Cascades through dependency chain: VENDOR_002 → VENDOR_005 → VENDOR_009",
+          "business_impact": "Potential operational impact affecting 3 downstream components",
+          "uncertainty_notes": "Detailed business impact requires inventory levels, lead times, and dependency criticality data"
+        },
+        {
+          "path": [
+            "VENDOR_001",
+            "VENDOR_003",
+            "VENDOR_006",
+            "VENDOR_010"
+          ],
+          "cause": "Disruption or failure at VENDOR_001",
+          "effect": "Cascades through dependency chain: VENDOR_003 → VENDOR_006 → VENDOR_010",
+          "business_impact": "Potential operational impact affecting 3 downstream components",
+          "uncertainty_notes": "Detailed business impact requires inventory levels, lead times, and dependency criticality data"
+        },
+        {
+          "path": [
+            "VENDOR_001",
+            "VENDOR_002",
+            "VENDOR_004"
+          ],
+          "cause": "Disruption or failure at VENDOR_001",
+          "effect": "Cascades through dependency chain: VENDOR_002 → VENDOR_004",
+          "business_impact": "Potential operational impact affecting 2 downstream components",
+          "uncertainty_notes": "Detailed business impact requires inventory levels, lead times, and dependency criticality data"
+        },
+        {
+          "path": [
+            "VENDOR_001",
+            "VENDOR_002",
+            "VENDOR_005"
+          ],
+          "cause": "Disruption or failure at VENDOR_001",
+          "effect": "Cascades through dependency chain: VENDOR_002 → VENDOR_005",
+          "business_impact": "Potential operational impact affecting 2 downstream components",
+          "uncertainty_notes": "Detailed business impact requires inventory levels, lead times, and dependency criticality data"
+        }
+      ],
+      "data_limitations": [
+        "Inventory levels and stock buffers not provided",
+        "Lead times and recovery windows unknown",
+        "Dependency criticality ratings not available",
+        "Historical incident frequency data missing"
+      ],
+      "summary": "Analysis of 9 propagation paths affecting 9 nodes. Key impacts include cascading failures through dependency chains."
+    },
+    "mitigation": {
+      "ranked_mitigations": [
+        {
+          "action_type": "remove_edge",
+          "target": "VENDOR_001→VENDOR_002",
+          "description": "Remove dependency VENDOR_001→VENDOR_002 to break 5 paths",
+          "risk_reduction": 0.5555555555555556,
+          "affected_paths_reduced": 5,
+          "implementation_complexity": "low",
+          "trade_offs": "May require alternative supplier or integration method"
+        },
+        {
+          "action_type": "remove_edge",
+          "target": "VENDOR_001→VENDOR_003",
+          "description": "Remove dependency VENDOR_001→VENDOR_003 to break 4 paths",
+          "risk_reduction": 0.4444444444444444,
+          "affected_paths_reduced": 4,
+          "implementation_complexity": "low",
+          "trade_offs": "May require alternative supplier or integration method"
+        },
+        {
+          "action_type": "remove_edge",
+          "target": "VENDOR_002→VENDOR_004",
+          "description": "Remove dependency VENDOR_002→VENDOR_004 to break 2 paths",
+          "risk_reduction": 0.2222222222222222,
+          "affected_paths_reduced": 2,
+          "implementation_complexity": "low",
+          "trade_offs": "May require alternative supplier or integration method"
+        },
+        {
+          "action_type": "remove_edge",
+          "target": "VENDOR_002→VENDOR_005",
+          "description": "Remove dependency VENDOR_002→VENDOR_005 to break 2 paths",
+          "risk_reduction": 0.2222222222222222,
+          "affected_paths_reduced": 2,
+          "implementation_complexity": "low",
+          "trade_offs": "May require alternative supplier or integration method"
+        },
+        {
+          "action_type": "remove_edge",
+          "target": "VENDOR_003→VENDOR_006",
+          "description": "Remove dependency VENDOR_003→VENDOR_006 to break 2 paths",
+          "risk_reduction": 0.2222222222222222,
+          "affected_paths_reduced": 2,
+          "implementation_complexity": "low",
+          "trade_offs": "May require alternative supplier or integration method"
+        }
+      ],
+      "total_paths_original": 9,
+      "total_paths_reducible": 15
+    }
+  },
+  "agents_called": [
+    "SimulationAgent",
+    "ImpactReasoningAgent",
+    "MitigationAgent"
+  ]
+}

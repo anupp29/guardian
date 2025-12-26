@@ -69,6 +69,36 @@ from .mitigation_engine import (
     generate_mitigation_strategies
 )
 
+from .data_export import (
+    DataExporter,
+    ReportGenerator,
+    export_comprehensive_analysis
+)
+
+from .monitoring import (
+    SupplyChainMonitor,
+    Alert,
+    AlertSeverity,
+    AlertType,
+    MonitoringMetrics,
+    RiskThresholds,
+    create_monitoring_system,
+    setup_monitoring_dashboard_data
+)
+
+from .performance import (
+    PerformanceTracker,
+    PerformanceTimer,
+    InMemoryCache,
+    BatchProcessor,
+    MemoryOptimizer,
+    performance_monitor,
+    cached,
+    get_performance_tracker,
+    get_global_cache,
+    optimize_system_performance
+)
+
 __version__ = "1.0.0"
 __author__ = "Guardian AI Team"
 
@@ -125,5 +155,32 @@ __all__ = [
     'MitigationStrategy',
     'MitigationCategory',
     'MitigationPriority',
-    'generate_mitigation_strategies'
+    'generate_mitigation_strategies',
+    
+    # Data Export
+    'DataExporter',
+    'ReportGenerator',
+    'export_comprehensive_analysis',
+    
+    # Monitoring
+    'SupplyChainMonitor',
+    'Alert',
+    'AlertSeverity',
+    'AlertType',
+    'MonitoringMetrics',
+    'RiskThresholds',
+    'create_monitoring_system',
+    'setup_monitoring_dashboard_data',
+    
+    # Performance
+    'PerformanceTracker',
+    'PerformanceTimer',
+    'InMemoryCache',
+    'BatchProcessor',
+    'MemoryOptimizer',
+    'performance_monitor',
+    'cached',
+    'get_performance_tracker',
+    'get_global_cache',
+    'optimize_system_performance'
 ]

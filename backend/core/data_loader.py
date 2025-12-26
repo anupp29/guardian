@@ -528,15 +528,15 @@ class MERCORDataLoader:
                 'id': vendor.id,
                 'name': vendor.name,
                 'category': vendor.category,
-                'tier': vendor.tier,
-                'riskScore': vendor.risk_score,
+                'tier': int(vendor.tier),
+                'riskScore': float(vendor.risk_score),
                 'status': vendor.status,
                 'metadata': {
                     'contractType': vendor.contract_type,
                     'lastAudit': vendor.last_audit,
                     'certifications': vendor.certifications,
-                    'criticalityScore': vendor.criticality_score,
-                    'employeeAccess': vendor.employee_access,
+                    'criticalityScore': int(vendor.criticality_score),
+                    'employeeAccess': int(vendor.employee_access),
                     'dataCategories': vendor.data_categories
                 }
             }
@@ -550,7 +550,7 @@ class MERCORDataLoader:
                 'target': dependency.target,
                 'type': dependency.type,
                 'category': dependency.category,
-                'strength': dependency.strength,
+                'strength': float(dependency.strength),
                 'metadata': {
                     'lastVerified': dependency.last_verified,
                     'dataVolume': dependency.data_volume,
@@ -579,7 +579,7 @@ class MERCORDataLoader:
             {
                 'name': 'Critical Authentication Compromise',
                 'description': 'Compromise of primary authentication provider',
-                'initial_compromised': lambda: random.sample([v for v in tier_1_vendors if any(vendor.category == 'authentication' for vendor in self.vendors if vendor.id == v)], 1),
+                'initial_compromised': lambda: random.sample([v for v in tier_1_vendors if any(vendor.category == 'authentication' for vendor in self.vendors if vendor.id == v)], min(1, len([v for v in tier_1_vendors if any(vendor.category == 'authentication' for vendor in self.vendors if vendor.id == v)]))),
                 'severity': 'critical'
             },
             {
@@ -597,7 +597,7 @@ class MERCORDataLoader:
             {
                 'name': 'API Integration Attack',
                 'description': 'Coordinated attack through API integrations',
-                'initial_compromised': lambda: random.sample([v for v in self.vendors if v.category == 'api'][:3], min(3, len([v for v in self.vendors if v.category == 'api']))),
+                'initial_compromised': lambda: random.sample([v.id for v in self.vendors if v.category == 'api'][:3], min(3, len([v for v in self.vendors if v.category == 'api']))),
                 'severity': 'medium'
             },
             {
@@ -685,7 +685,7 @@ class MERCORDataLoader:
                     'riskReduction': 45 - i*5,
                     'effectiveness': 'high' if i == 0 else 'medium',
                     'implementationTime': '2-3 weeks',
-                    'cost': '$' if i > 1 else '$$',
+                    'cost': '$$' if i > 1 else '$',
                     'priority': i + 2,
                     'affectedVendors': len([n for n in graph.graph.neighbors(node_id)]),
                     'category': 'hardening',

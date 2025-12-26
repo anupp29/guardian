@@ -65,7 +65,7 @@ class AdvancedMitigationEngine:
                 'riskReduction': 68,
                 'effectiveness': 'very_high',
                 'implementationTime': '2 weeks',
-                'cost': '$',
+                'cost': '$$',
                 'priority': 1,
                 'affectedVendors': len(list(self.graph.graph.successors(top_spof))) + 1,
                 'category': 'redundancy',
@@ -120,14 +120,14 @@ class AdvancedMitigationEngine:
                 'title': 'Real-time Threat Monitoring',
                 'description': 'Implement comprehensive monitoring and alerting system.',
                 'riskReduction': 35,
-                'cost': '$'
+                'cost': '$$'
             },
             {
                 'category': 'isolation',
                 'title': 'Network Segmentation Enhancement',
                 'description': 'Implement micro-segmentation for critical vendors.',
                 'riskReduction': 40,
-                'cost': '$'
+                'cost': '$$$'
             }
         ]
         

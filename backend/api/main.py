@@ -15,7 +15,11 @@ from backend.core import (
     AdvancedSimulationEngine,
     AdvancedMitigationEngine,
     GNNInferenceEngine,
-    export_sample_data
+    export_sample_data,
+    SupplyChainMonitor,
+    create_monitoring_system,
+    get_performance_tracker,
+    performance_monitor
 )
 
 # Setup logging
@@ -48,11 +52,17 @@ class AppState:
         self.simulation_engine = None
         self.mitigation_engine = None
         self.gnn_engine = None
+        self.monitor = None
+        self.performance_tracker = None
         self.active_simulations = {}
         
     def initialize(self):
         """Initialize the core components."""
         logger.info("Initializing Guardian AI components...")
+        
+        # Initialize performance tracking
+        self.performance_tracker = get_performance_tracker()
+        self.performance_tracker.start_system_monitoring()
         
         # Create sample supply chain
         self.supply_chain_graph = create_sample_supply_chain(50)
@@ -67,6 +77,14 @@ class AppState:
             self.supply_chain_graph,
             risk_calculator=self.risk_calculator
         )
+        
+        # Initialize monitoring
+        self.monitor = create_monitoring_system(
+            self.supply_chain_graph,
+            self.risk_calculator,
+            self.simulation_engine
+        )
+        self.monitor.start_monitoring()
         
         # Initialize GNN (with fallback)
         try:
@@ -129,21 +147,48 @@ async def root():
     }
 
 @app.get("/health")
+@performance_monitor
 async def health_check():
     """Health check endpoint."""
+    
+    # Get system performance metrics
+    system_health = 1.0
+    performance_stats = {}
+    
+    if state.performance_tracker:
+        system_health = state.performance_tracker.get_system_health_score()
+        performance_stats = {
+            'cpu_usage': 0.0,
+            'memory_usage': 0.0,
+            'operations_per_second': 0.0
+        }
+        
+        if state.performance_tracker.system_metrics:
+            latest_metrics = state.performance_tracker.system_metrics[-1]
+            performance_stats = {
+                'cpu_usage': latest_metrics.cpu_usage,
+                'memory_usage': latest_metrics.memory_usage,
+                'operations_per_second': latest_metrics.operations_per_second
+            }
+    
     return {
-        "status": "healthy",
+        "status": "healthy" if system_health > 0.7 else "degraded" if system_health > 0.4 else "unhealthy",
+        "system_health_score": system_health,
         "components": {
             "supply_chain_graph": state.supply_chain_graph is not None,
             "risk_calculator": state.risk_calculator is not None,
             "simulation_engine": state.simulation_engine is not None,
             "mitigation_engine": state.mitigation_engine is not None,
-            "gnn_engine": state.gnn_engine is not None
+            "gnn_engine": state.gnn_engine is not None,
+            "monitor": state.monitor is not None and state.monitor.is_monitoring,
+            "performance_tracker": state.performance_tracker is not None
         },
+        "performance": performance_stats,
         "timestamp": datetime.now().isoformat()
     }
 
 @app.get("/api/graph/export")
+@performance_monitor
 async def export_graph():
     """Export supply chain graph in Cytoscape format."""
     try:
@@ -167,6 +212,7 @@ async def export_graph():
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/graph/statistics")
+@performance_monitor
 async def get_graph_statistics():
     """Get comprehensive graph statistics."""
     try:
@@ -186,6 +232,7 @@ async def get_graph_statistics():
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/risk/assessment")
+@performance_monitor
 async def get_risk_assessment():
     """Get comprehensive risk assessment."""
     try:
@@ -276,6 +323,7 @@ async def get_node_risks():
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/simulation/run")
+@performance_monitor
 async def run_simulation(request: SimulationRequest, background_tasks: BackgroundTasks):
     """Run supply chain compromise simulation."""
     try:
@@ -519,3 +567,159 @@ async def general_exception_handler(request, exc):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
+@app.get("/api/monitoring/status")
+@performance_monitor
+async def get_monitoring_status():
+    """Get monitoring system status."""
+    try:
+        if not state.monitor:
+            raise HTTPException(status_code=500, detail="Monitoring system not initialized")
+        
+        status = state.monitor.get_current_status()
+        
+        return JSONResponse(content={
+            "success": True,
+            "data": status,
+            "timestamp": datetime.now().isoformat()
+        })
+        
+    except Exception as e:
+        logger.error(f"Monitoring status retrieval failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/monitoring/alerts")
+@performance_monitor
+async def get_monitoring_alerts():
+    """Get active monitoring alerts."""
+    try:
+        if not state.monitor:
+            raise HTTPException(status_code=500, detail="Monitoring system not initialized")
+        
+        active_alerts = state.monitor.get_active_alerts()
+        
+        alerts_data = []
+        for alert in active_alerts:
+            alerts_data.append({
+                "id": alert.id,
+                "timestamp": alert.timestamp.isoformat(),
+                "severity": alert.severity.value,
+                "type": alert.alert_type.value,
+                "title": alert.title,
+                "description": alert.description,
+                "affected_entities": alert.affected_entities,
+                "acknowledged": alert.acknowledged,
+                "resolved": alert.resolved
+            })
+        
+        return JSONResponse(content={
+            "success": True,
+            "data": alerts_data,
+            "timestamp": datetime.now().isoformat()
+        })
+        
+    except Exception as e:
+        logger.error(f"Alerts retrieval failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/monitoring/alerts/{alert_id}/acknowledge")
+@performance_monitor
+async def acknowledge_alert(alert_id: str):
+    """Acknowledge a monitoring alert."""
+    try:
+        if not state.monitor:
+            raise HTTPException(status_code=500, detail="Monitoring system not initialized")
+        
+        success = state.monitor.acknowledge_alert(alert_id)
+        
+        if not success:
+            raise HTTPException(status_code=404, detail="Alert not found")
+        
+        return JSONResponse(content={
+            "success": True,
+            "message": f"Alert {alert_id} acknowledged",
+            "timestamp": datetime.now().isoformat()
+        })
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Alert acknowledgment failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/performance/metrics")
+@performance_monitor
+async def get_performance_metrics():
+    """Get system performance metrics."""
+    try:
+        if not state.performance_tracker:
+            raise HTTPException(status_code=500, detail="Performance tracker not initialized")
+        
+        # Get operation statistics
+        operation_stats = state.performance_tracker.get_all_operation_stats()
+        
+        # Get system health
+        system_health = state.performance_tracker.get_system_health_score()
+        
+        # Get recent system metrics
+        recent_metrics = []
+        if state.performance_tracker.system_metrics:
+            for metrics in list(state.performance_tracker.system_metrics)[-10:]:  # Last 10 data points
+                recent_metrics.append({
+                    "timestamp": metrics.timestamp.isoformat(),
+                    "cpu_usage": metrics.cpu_usage,
+                    "memory_usage": metrics.memory_usage,
+                    "memory_available": metrics.memory_available,
+                    "active_threads": metrics.active_threads,
+                    "average_response_time": metrics.average_response_time,
+                    "operations_per_second": metrics.operations_per_second
+                })
+        
+        return JSONResponse(content={
+            "success": True,
+            "data": {
+                "system_health_score": system_health,
+                "operation_statistics": operation_stats[:10],  # Top 10 operations
+                "recent_system_metrics": recent_metrics
+            },
+            "timestamp": datetime.now().isoformat()
+        })
+        
+    except Exception as e:
+        logger.error(f"Performance metrics retrieval failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/system/optimize")
+@performance_monitor
+async def optimize_system():
+    """Run system optimization."""
+    try:
+        from backend.core.performance import optimize_system_performance
+        
+        optimization_results = optimize_system_performance()
+        
+        return JSONResponse(content={
+            "success": True,
+            "data": optimization_results,
+            "message": "System optimization completed",
+            "timestamp": datetime.now().isoformat()
+        })
+        
+    except Exception as e:
+        logger.error(f"System optimization failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    """Cleanup on application shutdown."""
+    logger.info("Guardian AI Backend shutting down...")
+    
+    # Stop monitoring
+    if state.monitor:
+        state.monitor.stop_monitoring()
+    
+    # Stop performance tracking
+    if state.performance_tracker:
+        state.performance_tracker.stop_system_monitoring()
+    
+    logger.info("Guardian AI Backend shutdown complete")

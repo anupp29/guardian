@@ -1,0 +1,2640 @@
+{
+  "vendors": [
+    {
+      "id": "vnd_authentication_okta",
+      "name": "Okta",
+      "category": "authentication",
+      "tier": 2,
+      "riskScore": 0.3319414978819259,
+      "status": "secure",
+      "metadata": {
+        "contractType": "multi-year",
+        "lastAudit": "2025-11-17",
+        "certifications": [],
+        "criticalityScore": 75,
+        "employeeAccess": 741,
+        "dataCategories": [
+          "authentication",
+          "user_identity",
+          "access_control"
+        ]
+      }
+    },
+    {
+      "id": "vnd_authentication_auth0",
+      "name": "Auth0",
+      "category": "authentication",
+      "tier": 2,
+      "riskScore": 0.3230059352412563,
+      "status": "secure",
+      "metadata": {
+        "contractType": "multi-year",
+        "lastAudit": "2024-03-13",
+        "certifications": [],
+        "criticalityScore": 50,
+        "employeeAccess": 1637,
+        "dataCategories": [
+          "authentication",
+          "user_identity",
+          "access_control",
+          "service_data",
+          "payment_data"
+        ]
+      }
+    },
+    {
+      "id": "vnd_authentication_microsoft_azure_ad",
+      "name": "Microsoft Azure AD",
+      "category": "authentication",
+      "tier": 2,
+      "riskScore": 0.20275968251803803,
+      "status": "secure",
+      "metadata": {
+        "contractType": "multi-year",
+        "lastAudit": "2025-09-28",
+        "certifications": [],
+        "criticalityScore": 73,
+        "employeeAccess": 521,
+        "dataCategories": [
+          "authentication",
+          "user_identity",
+          "access_control",
+          "customer_data",
+          "backups"
+        ]
+      }
+    },
+    {
+      "id": "vnd_authentication_ping_identity",
+      "name": "Ping Identity",
+      "category": "authentication",
+      "tier": 2,
+      "riskScore": 0.12576674460018875,
+      "status": "secure",
+      "metadata": {
+        "contractType": "multi-year",
+        "lastAudit": "2025-01-26",
+        "certifications": [
+          "HIPAA"
+        ],
+        "criticalityScore": 84,
+        "employeeAccess": 1267,
+        "dataCategories": [
+          "authentication",
+          "user_identity",
+          "access_control"
+        ]
+      }
+    },
+    {
+      "id": "vnd_authentication_onelogin",
+      "name": "OneLogin",
+      "category": "authentication",
+      "tier": 1,
+      "riskScore": 0.1620199167352638,
+      "status": "secure",
+      "metadata": {
+        "contractType": "month-to-month",
+        "lastAudit": "2024-02-04",
+        "certifications": [
+          "FedRAMP",
+          "GDPR"
+        ],
+        "criticalityScore": 87,
+        "employeeAccess": 2346,
+        "dataCategories": [
+          "authentication",
+          "user_identity",
+          "access_control"
+        ]
+      }
+    },
+    {
+      "id": "vnd_payment_stripe",
+      "name": "Stripe",
+      "category": "payment",
+      "tier": 3,
+      "riskScore": 0.315133815184466,
+      "status": "warning",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-04-04",
+        "certifications": [
+          "GDPR",
+          "ISO27001"
+        ],
+        "criticalityScore": 95,
+        "employeeAccess": 530,
+        "dataCategories": [
+          "payment_data",
+          "financial",
+          "transaction_logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_payment_paypal",
+      "name": "PayPal",
+      "category": "payment",
+      "tier": 3,
+      "riskScore": 0.3674740915366165,
+      "status": "secure",
+      "metadata": {
+        "contractType": "multi-year",
+        "lastAudit": "2025-08-17",
+        "certifications": [
+          "ISO27001"
+        ],
+        "criticalityScore": 63,
+        "employeeAccess": 722,
+        "dataCategories": [
+          "payment_data",
+          "financial",
+          "transaction_logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_payment_square",
+      "name": "Square",
+      "category": "payment",
+      "tier": 1,
+      "riskScore": 0.06054964162269205,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-04-30",
+        "certifications": [
+          "PCI DSS",
+          "FedRAMP"
+        ],
+        "criticalityScore": 90,
+        "employeeAccess": 4807,
+        "dataCategories": [
+          "payment_data",
+          "financial",
+          "transaction_logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_payment_adyen",
+      "name": "Adyen",
+      "category": "payment",
+      "tier": 2,
+      "riskScore": 0.05336522254466741,
+      "status": "secure",
+      "metadata": {
+        "contractType": "multi-year",
+        "lastAudit": "2024-12-23",
+        "certifications": [
+          "SOC2",
+          "GDPR",
+          "FedRAMP"
+        ],
+        "criticalityScore": 93,
+        "employeeAccess": 897,
+        "dataCategories": [
+          "payment_data",
+          "financial",
+          "transaction_logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_payment_braintree",
+      "name": "Braintree",
+      "category": "payment",
+      "tier": 3,
+      "riskScore": 0.302404753701661,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-09-23",
+        "certifications": [],
+        "criticalityScore": 72,
+        "employeeAccess": 827,
+        "dataCategories": [
+          "payment_data",
+          "financial",
+          "transaction_logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_payment_klarna",
+      "name": "Klarna",
+      "category": "payment",
+      "tier": 2,
+      "riskScore": 0.24003816039576079,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-03-15",
+        "certifications": [],
+        "criticalityScore": 71,
+        "employeeAccess": 1639,
+        "dataCategories": [
+          "payment_data",
+          "financial",
+          "transaction_logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_payment_worldpay",
+      "name": "Worldpay",
+      "category": "payment",
+      "tier": 1,
+      "riskScore": 0.07753360455055293,
+      "status": "secure",
+      "metadata": {
+        "contractType": "multi-year",
+        "lastAudit": "2024-04-24",
+        "certifications": [
+          "PCI DSS",
+          "ISO27001"
+        ],
+        "criticalityScore": 88,
+        "employeeAccess": 1059,
+        "dataCategories": [
+          "payment_data",
+          "financial",
+          "transaction_logs",
+          "analytics",
+          "configuration"
+        ]
+      }
+    },
+    {
+      "id": "vnd_payment_authorizenet",
+      "name": "Authorize.Net",
+      "category": "payment",
+      "tier": 3,
+      "riskScore": 0.24643204260661905,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2024-06-09",
+        "certifications": [],
+        "criticalityScore": 72,
+        "employeeAccess": 227,
+        "dataCategories": [
+          "payment_data",
+          "financial",
+          "transaction_logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_data_aws_s3",
+      "name": "AWS S3",
+      "category": "data",
+      "tier": 2,
+      "riskScore": 0.2428072059837888,
+      "status": "warning",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-02-14",
+        "certifications": [
+          "PCI DSS",
+          "SOC2"
+        ],
+        "criticalityScore": 74,
+        "employeeAccess": 889,
+        "dataCategories": [
+          "customer_data",
+          "analytics",
+          "backups",
+          "logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_data_google_cloud_storage",
+      "name": "Google Cloud Storage",
+      "category": "data",
+      "tier": 3,
+      "riskScore": 0.4349082610584895,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2024-10-27",
+        "certifications": [],
+        "criticalityScore": 48,
+        "employeeAccess": 588,
+        "dataCategories": [
+          "customer_data",
+          "analytics",
+          "backups",
+          "logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_data_azure_blob",
+      "name": "Azure Blob",
+      "category": "data",
+      "tier": 3,
+      "riskScore": 0.3220652554024246,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-06-28",
+        "certifications": [
+          "FedRAMP"
+        ],
+        "criticalityScore": 61,
+        "employeeAccess": 681,
+        "dataCategories": [
+          "customer_data",
+          "analytics",
+          "backups",
+          "logs",
+          "payment_data",
+          "transaction_logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_data_snowflake",
+      "name": "Snowflake",
+      "category": "data",
+      "tier": 2,
+      "riskScore": 0.27818524606002926,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-04-10",
+        "certifications": [],
+        "criticalityScore": 69,
+        "employeeAccess": 1524,
+        "dataCategories": [
+          "customer_data",
+          "analytics",
+          "backups",
+          "logs",
+          "payment_data",
+          "transaction_logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_data_mongodb_atlas",
+      "name": "MongoDB Atlas",
+      "category": "data",
+      "tier": 2,
+      "riskScore": 0.2083330955395534,
+      "status": "secure",
+      "metadata": {
+        "contractType": "month-to-month",
+        "lastAudit": "2025-03-21",
+        "certifications": [
+          "ISO27001",
+          "PCI DSS",
+          "SOC2"
+        ],
+        "criticalityScore": 80,
+        "employeeAccess": 1686,
+        "dataCategories": [
+          "customer_data",
+          "analytics",
+          "backups",
+          "logs",
+          "configuration",
+          "transaction_logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_data_postgresql_cloud",
+      "name": "PostgreSQL Cloud",
+      "category": "data",
+      "tier": 2,
+      "riskScore": 0.24610434713843105,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2024-08-10",
+        "certifications": [
+          "FedRAMP",
+          "SOC2"
+        ],
+        "criticalityScore": 58,
+        "employeeAccess": 1191,
+        "dataCategories": [
+          "customer_data",
+          "analytics",
+          "backups",
+          "logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_data_redis_cloud",
+      "name": "Redis Cloud",
+      "category": "data",
+      "tier": 3,
+      "riskScore": 0.3654776729750129,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-08-07",
+        "certifications": [
+          "ISO27001"
+        ],
+        "criticalityScore": 55,
+        "employeeAccess": 875,
+        "dataCategories": [
+          "customer_data",
+          "analytics",
+          "backups",
+          "logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_data_elasticsearch_cloud",
+      "name": "Elasticsearch Cloud",
+      "category": "data",
+      "tier": 3,
+      "riskScore": 0.3805081629469122,
+      "status": "warning",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-02-11",
+        "certifications": [
+          "GDPR"
+        ],
+        "criticalityScore": 41,
+        "employeeAccess": 529,
+        "dataCategories": [
+          "customer_data",
+          "analytics",
+          "backups",
+          "logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_data_databricks",
+      "name": "Databricks",
+      "category": "data",
+      "tier": 3,
+      "riskScore": 0.246608568527113,
+      "status": "secure",
+      "metadata": {
+        "contractType": "multi-year",
+        "lastAudit": "2024-01-06",
+        "certifications": [],
+        "criticalityScore": 79,
+        "employeeAccess": 937,
+        "dataCategories": [
+          "customer_data",
+          "analytics",
+          "backups",
+          "logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_data_bigquery",
+      "name": "BigQuery",
+      "category": "data",
+      "tier": 2,
+      "riskScore": 0.1337867153465053,
+      "status": "warning",
+      "metadata": {
+        "contractType": "multi-year",
+        "lastAudit": "2025-04-15",
+        "certifications": [
+          "HIPAA",
+          "SOC2"
+        ],
+        "criticalityScore": 87,
+        "employeeAccess": 1519,
+        "dataCategories": [
+          "customer_data",
+          "analytics",
+          "backups",
+          "logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_data_redshift",
+      "name": "Redshift",
+      "category": "data",
+      "tier": 2,
+      "riskScore": 0.4203809177509324,
+      "status": "secure",
+      "metadata": {
+        "contractType": "multi-year",
+        "lastAudit": "2025-08-22",
+        "certifications": [],
+        "criticalityScore": 68,
+        "employeeAccess": 1619,
+        "dataCategories": [
+          "customer_data",
+          "analytics",
+          "backups",
+          "logs",
+          "transaction_logs",
+          "financial"
+        ]
+      }
+    },
+    {
+      "id": "vnd_data_cassandra",
+      "name": "Cassandra",
+      "category": "data",
+      "tier": 2,
+      "riskScore": 0.27516719011981894,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2024-06-09",
+        "certifications": [
+          "ISO27001",
+          "FedRAMP"
+        ],
+        "criticalityScore": 54,
+        "employeeAccess": 1351,
+        "dataCategories": [
+          "customer_data",
+          "analytics",
+          "backups",
+          "logs"
+        ]
+      }
+    },
+    {
+      "id": "vnd_api_twilio",
+      "name": "Twilio",
+      "category": "api",
+      "tier": 3,
+      "riskScore": 0.37760276909370877,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-07-05",
+        "certifications": [
+          "GDPR"
+        ],
+        "criticalityScore": 60,
+        "employeeAccess": 100,
+        "dataCategories": [
+          "integration_data",
+          "api_logs",
+          "service_data"
+        ]
+      }
+    },
+    {
+      "id": "vnd_api_sendgrid",
+      "name": "SendGrid",
+      "category": "api",
+      "tier": 2,
+      "riskScore": 0.17862777741545827,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-05-14",
+        "certifications": [
+          "PCI DSS"
+        ],
+        "criticalityScore": 65,
+        "employeeAccess": 1524,
+        "dataCategories": [
+          "integration_data",
+          "api_logs",
+          "service_data"
+        ]
+      }
+    },
+    {
+      "id": "vnd_api_mailgun",
+      "name": "Mailgun",
+      "category": "api",
+      "tier": 2,
+      "riskScore": 0.3547568228272897,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2024-12-03",
+        "certifications": [
+          "ISO27001",
+          "SOC2"
+        ],
+        "criticalityScore": 82,
+        "employeeAccess": 1357,
+        "dataCategories": [
+          "integration_data",
+          "api_logs",
+          "service_data",
+          "access_control",
+          "user_identity"
+        ]
+      }
+    },
+    {
+      "id": "vnd_api_slack_api",
+      "name": "Slack API",
+      "category": "api",
+      "tier": 3,
+      "riskScore": 0.4998124943053227,
+      "status": "secure",
+      "metadata": {
+        "contractType": "multi-year",
+        "lastAudit": "2024-04-16",
+        "certifications": [],
+        "criticalityScore": 65,
+        "employeeAccess": 343,
+        "dataCategories": [
+          "integration_data",
+          "api_logs",
+          "service_data",
+          "payment_data",
+          "authentication"
+        ]
+      }
+    },
+    {
+      "id": "vnd_api_github_api",
+      "name": "GitHub API",
+      "category": "api",
+      "tier": 3,
+      "riskScore": 0.26301188348609056,
+      "status": "warning",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-01-11",
+        "certifications": [],
+        "criticalityScore": 85,
+        "employeeAccess": 930,
+        "dataCategories": [
+          "integration_data",
+          "api_logs",
+          "service_data"
+        ]
+      }
+    },
+    {
+      "id": "vnd_api_google_maps",
+      "name": "Google Maps",
+      "category": "api",
+      "tier": 2,
+      "riskScore": 0.3890685085246326,
+      "status": "secure",
+      "metadata": {
+        "contractType": "month-to-month",
+        "lastAudit": "2025-01-15",
+        "certifications": [
+          "ISO27001",
+          "SOC2",
+          "GDPR"
+        ],
+        "criticalityScore": 40,
+        "employeeAccess": 1815,
+        "dataCategories": [
+          "integration_data",
+          "api_logs",
+          "service_data"
+        ]
+      }
+    },
+    {
+      "id": "vnd_api_zoom_api",
+      "name": "Zoom API",
+      "category": "api",
+      "tier": 1,
+      "riskScore": 0.13576315756180826,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2024-09-24",
+        "certifications": [
+          "SOC2",
+          "PCI DSS"
+        ],
+        "criticalityScore": 98,
+        "employeeAccess": 2253,
+        "dataCategories": [
+          "integration_data",
+          "api_logs",
+          "service_data"
+        ]
+      }
+    },
+    {
+      "id": "vnd_api_salesforce_api",
+      "name": "Salesforce API",
+      "category": "api",
+      "tier": 3,
+      "riskScore": 0.4303670378224017,
+      "status": "warning",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2024-05-25",
+        "certifications": [
+          "GDPR"
+        ],
+        "criticalityScore": 58,
+        "employeeAccess": 838,
+        "dataCategories": [
+          "integration_data",
+          "api_logs",
+          "service_data",
+          "performance_data",
+          "access_control"
+        ]
+      }
+    },
+    {
+      "id": "vnd_api_hubspot_api",
+      "name": "HubSpot API",
+      "category": "api",
+      "tier": 3,
+      "riskScore": 0.2528848369999628,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2024-11-02",
+        "certifications": [
+          "GDPR"
+        ],
+        "criticalityScore": 67,
+        "employeeAccess": 679,
+        "dataCategories": [
+          "integration_data",
+          "api_logs",
+          "service_data"
+        ]
+      }
+    },
+    {
+      "id": "vnd_api_zendesk_api",
+      "name": "Zendesk API",
+      "category": "api",
+      "tier": 3,
+      "riskScore": 0.2096485421013715,
+      "status": "compromised",
+      "metadata": {
+        "contractType": "multi-year",
+        "lastAudit": "2024-06-23",
+        "certifications": [
+          "PCI DSS",
+          "HIPAA"
+        ],
+        "criticalityScore": 94,
+        "employeeAccess": 790,
+        "dataCategories": [
+          "integration_data",
+          "api_logs",
+          "service_data",
+          "user_identity",
+          "payment_data"
+        ]
+      }
+    },
+    {
+      "id": "vnd_api_intercom_api",
+      "name": "Intercom API",
+      "category": "api",
+      "tier": 3,
+      "riskScore": 0.33742554813097564,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2024-07-15",
+        "certifications": [],
+        "criticalityScore": 59,
+        "employeeAccess": 209,
+        "dataCategories": [
+          "integration_data",
+          "api_logs",
+          "service_data",
+          "performance_data",
+          "backups"
+        ]
+      }
+    },
+    {
+      "id": "vnd_api_shopify_api",
+      "name": "Shopify API",
+      "category": "api",
+      "tier": 3,
+      "riskScore": 0.12174902836913581,
+      "status": "secure",
+      "metadata": {
+        "contractType": "multi-year",
+        "lastAudit": "2024-02-04",
+        "certifications": [
+          "PCI DSS",
+          "HIPAA"
+        ],
+        "criticalityScore": 82,
+        "employeeAccess": 949,
+        "dataCategories": [
+          "integration_data",
+          "api_logs",
+          "service_data"
+        ]
+      }
+    },
+    {
+      "id": "vnd_api_docusign_api",
+      "name": "DocuSign API",
+      "category": "api",
+      "tier": 3,
+      "riskScore": 0.16096389330830002,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2024-04-08",
+        "certifications": [
+          "GDPR",
+          "PCI DSS"
+        ],
+        "criticalityScore": 86,
+        "employeeAccess": 755,
+        "dataCategories": [
+          "integration_data",
+          "api_logs",
+          "service_data"
+        ]
+      }
+    },
+    {
+      "id": "vnd_api_adobe_api",
+      "name": "Adobe API",
+      "category": "api",
+      "tier": 3,
+      "riskScore": 0.29466080763660574,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-02-01",
+        "certifications": [
+          "SOC2",
+          "ISO27001",
+          "FedRAMP"
+        ],
+        "criticalityScore": 75,
+        "employeeAccess": 374,
+        "dataCategories": [
+          "integration_data",
+          "api_logs",
+          "service_data"
+        ]
+      }
+    },
+    {
+      "id": "vnd_api_dropbox_api",
+      "name": "Dropbox API",
+      "category": "api",
+      "tier": 2,
+      "riskScore": 0.13943650204856547,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-10-25",
+        "certifications": [
+          "ISO27001",
+          "SOC2"
+        ],
+        "criticalityScore": 77,
+        "employeeAccess": 1046,
+        "dataCategories": [
+          "integration_data",
+          "api_logs",
+          "service_data"
+        ]
+      }
+    },
+    {
+      "id": "vnd_infrastructure_aws_ec2",
+      "name": "AWS EC2",
+      "category": "infrastructure",
+      "tier": 1,
+      "riskScore": 0.21602281998670075,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-06-06",
+        "certifications": [],
+        "criticalityScore": 75,
+        "employeeAccess": 3703,
+        "dataCategories": [
+          "system_logs",
+          "performance_data",
+          "configuration",
+          "analytics",
+          "user_identity"
+        ]
+      }
+    },
+    {
+      "id": "vnd_infrastructure_google_compute",
+      "name": "Google Compute",
+      "category": "infrastructure",
+      "tier": 3,
+      "riskScore": 0.27121148246072335,
+      "status": "secure",
+      "metadata": {
+        "contractType": "multi-year",
+        "lastAudit": "2024-04-16",
+        "certifications": [],
+        "criticalityScore": 53,
+        "employeeAccess": 399,
+        "dataCategories": [
+          "system_logs",
+          "performance_data",
+          "configuration"
+        ]
+      }
+    },
+    {
+      "id": "vnd_infrastructure_azure_vms",
+      "name": "Azure VMs",
+      "category": "infrastructure",
+      "tier": 3,
+      "riskScore": 0.32235414344103047,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-06-22",
+        "certifications": [
+          "PCI DSS"
+        ],
+        "criticalityScore": 79,
+        "employeeAccess": 203,
+        "dataCategories": [
+          "system_logs",
+          "performance_data",
+          "configuration"
+        ]
+      }
+    },
+    {
+      "id": "vnd_infrastructure_digitalocean",
+      "name": "DigitalOcean",
+      "category": "infrastructure",
+      "tier": 3,
+      "riskScore": 0.31818360896697506,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2024-06-15",
+        "certifications": [],
+        "criticalityScore": 67,
+        "employeeAccess": 636,
+        "dataCategories": [
+          "system_logs",
+          "performance_data",
+          "configuration"
+        ]
+      }
+    },
+    {
+      "id": "vnd_infrastructure_linode",
+      "name": "Linode",
+      "category": "infrastructure",
+      "tier": 2,
+      "riskScore": 0.08995510310698829,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-04-13",
+        "certifications": [
+          "HIPAA"
+        ],
+        "criticalityScore": 83,
+        "employeeAccess": 1810,
+        "dataCategories": [
+          "system_logs",
+          "performance_data",
+          "configuration"
+        ]
+      }
+    },
+    {
+      "id": "vnd_infrastructure_heroku",
+      "name": "Heroku",
+      "category": "infrastructure",
+      "tier": 3,
+      "riskScore": 0.34389908691201015,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-03-27",
+        "certifications": [],
+        "criticalityScore": 81,
+        "employeeAccess": 861,
+        "dataCategories": [
+          "system_logs",
+          "performance_data",
+          "configuration"
+        ]
+      }
+    },
+    {
+      "id": "vnd_infrastructure_vercel",
+      "name": "Vercel",
+      "category": "infrastructure",
+      "tier": 2,
+      "riskScore": 0.12747783066641727,
+      "status": "secure",
+      "metadata": {
+        "contractType": "multi-year",
+        "lastAudit": "2024-12-04",
+        "certifications": [
+          "ISO27001"
+        ],
+        "criticalityScore": 100,
+        "employeeAccess": 565,
+        "dataCategories": [
+          "system_logs",
+          "performance_data",
+          "configuration"
+        ]
+      }
+    },
+    {
+      "id": "vnd_infrastructure_netlify",
+      "name": "Netlify",
+      "category": "infrastructure",
+      "tier": 1,
+      "riskScore": 0.29546768506704335,
+      "status": "secure",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2024-01-04",
+        "certifications": [],
+        "criticalityScore": 71,
+        "employeeAccess": 3957,
+        "dataCategories": [
+          "system_logs",
+          "performance_data",
+          "configuration"
+        ]
+      }
+    },
+    {
+      "id": "vnd_infrastructure_cloudflare",
+      "name": "Cloudflare",
+      "category": "infrastructure",
+      "tier": 1,
+      "riskScore": 0.14299933795241207,
+      "status": "compromised",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2025-02-17",
+        "certifications": [
+          "SOC2",
+          "PCI DSS"
+        ],
+        "criticalityScore": 79,
+        "employeeAccess": 1838,
+        "dataCategories": [
+          "system_logs",
+          "performance_data",
+          "configuration",
+          "payment_data",
+          "service_data"
+        ]
+      }
+    },
+    {
+      "id": "vnd_infrastructure_fastly",
+      "name": "Fastly",
+      "category": "infrastructure",
+      "tier": 1,
+      "riskScore": 0.1222059711536224,
+      "status": "compromised",
+      "metadata": {
+        "contractType": "annual",
+        "lastAudit": "2024-05-23",
+        "certifications": [],
+        "criticalityScore": 70,
+        "employeeAccess": 2424,
+        "dataCategories": [
+          "system_logs",
+          "performance_data",
+          "configuration",
+          "backups",
+          "customer_data"
+        ]
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "dep_001",
+      "source": "vnd_authentication_okta",
+      "target": "vnd_payment_braintree",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.772140669113829,
+      "metadata": {
+        "lastVerified": "2025-12-05",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_002",
+      "source": "vnd_authentication_okta",
+      "target": "vnd_payment_adyen",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.31757856583899025,
+      "metadata": {
+        "lastVerified": "2025-03-25",
+        "dataVolume": "high",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_003",
+      "source": "vnd_authentication_okta",
+      "target": "vnd_data_snowflake",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.8887923336213304,
+      "metadata": {
+        "lastVerified": "2025-07-02",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_004",
+      "source": "vnd_authentication_okta",
+      "target": "vnd_api_sendgrid",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.6801820654496172,
+      "metadata": {
+        "lastVerified": "2025-05-04",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_005",
+      "source": "vnd_authentication_okta",
+      "target": "vnd_infrastructure_netlify",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.8723894866610171,
+      "metadata": {
+        "lastVerified": "2025-07-02",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_006",
+      "source": "vnd_authentication_auth0",
+      "target": "vnd_payment_adyen",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.6455153457479652,
+      "metadata": {
+        "lastVerified": "2025-06-30",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_007",
+      "source": "vnd_authentication_auth0",
+      "target": "vnd_data_snowflake",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.3959038536672518,
+      "metadata": {
+        "lastVerified": "2025-09-24",
+        "dataVolume": "high",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_008",
+      "source": "vnd_authentication_auth0",
+      "target": "vnd_api_hubspot_api",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.4564440926639579,
+      "metadata": {
+        "lastVerified": "2025-08-17",
+        "dataVolume": "high",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_009",
+      "source": "vnd_authentication_auth0",
+      "target": "vnd_api_zendesk_api",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.5766512329843965,
+      "metadata": {
+        "lastVerified": "2025-09-17",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_010",
+      "source": "vnd_authentication_auth0",
+      "target": "vnd_api_github_api",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.7616534557274772,
+      "metadata": {
+        "lastVerified": "2025-02-27",
+        "dataVolume": "high",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_011",
+      "source": "vnd_authentication_auth0",
+      "target": "vnd_infrastructure_fastly",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.8558020943999449,
+      "metadata": {
+        "lastVerified": "2025-08-29",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_012",
+      "source": "vnd_authentication_microsoft_azure_ad",
+      "target": "vnd_payment_paypal",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.5365867902322436,
+      "metadata": {
+        "lastVerified": "2025-06-27",
+        "dataVolume": "medium",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_013",
+      "source": "vnd_authentication_microsoft_azure_ad",
+      "target": "vnd_data_snowflake",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.6480523819745787,
+      "metadata": {
+        "lastVerified": "2025-08-31",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_014",
+      "source": "vnd_authentication_microsoft_azure_ad",
+      "target": "vnd_api_dropbox_api",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.644295881084215,
+      "metadata": {
+        "lastVerified": "2025-10-12",
+        "dataVolume": "low",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_015",
+      "source": "vnd_authentication_microsoft_azure_ad",
+      "target": "vnd_infrastructure_heroku",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.4395299933021042,
+      "metadata": {
+        "lastVerified": "2025-11-01",
+        "dataVolume": "high",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_016",
+      "source": "vnd_authentication_ping_identity",
+      "target": "vnd_payment_klarna",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.4324529666892438,
+      "metadata": {
+        "lastVerified": "2025-10-29",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_017",
+      "source": "vnd_authentication_ping_identity",
+      "target": "vnd_payment_square",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.7546512299642414,
+      "metadata": {
+        "lastVerified": "2025-07-03",
+        "dataVolume": "high",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_018",
+      "source": "vnd_authentication_ping_identity",
+      "target": "vnd_payment_braintree",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.2509424699229626,
+      "metadata": {
+        "lastVerified": "2025-09-14",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_019",
+      "source": "vnd_authentication_ping_identity",
+      "target": "vnd_data_redis_cloud",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.754002214151685,
+      "metadata": {
+        "lastVerified": "2025-11-27",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_020",
+      "source": "vnd_authentication_ping_identity",
+      "target": "vnd_api_twilio",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.37789049461824065,
+      "metadata": {
+        "lastVerified": "2025-04-11",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_021",
+      "source": "vnd_authentication_ping_identity",
+      "target": "vnd_infrastructure_azure_vms",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.716849059387404,
+      "metadata": {
+        "lastVerified": "2025-02-18",
+        "dataVolume": "high",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_022",
+      "source": "vnd_authentication_ping_identity",
+      "target": "vnd_infrastructure_netlify",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.6892995859092187,
+      "metadata": {
+        "lastVerified": "2024-12-29",
+        "dataVolume": "low",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_023",
+      "source": "vnd_authentication_onelogin",
+      "target": "vnd_payment_klarna",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.5963667329985419,
+      "metadata": {
+        "lastVerified": "2025-11-20",
+        "dataVolume": "low",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_024",
+      "source": "vnd_authentication_onelogin",
+      "target": "vnd_data_azure_blob",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.46815639211930415,
+      "metadata": {
+        "lastVerified": "2025-09-06",
+        "dataVolume": "high",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_025",
+      "source": "vnd_authentication_onelogin",
+      "target": "vnd_api_mailgun",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.8043192787201308,
+      "metadata": {
+        "lastVerified": "2025-06-18",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_026",
+      "source": "vnd_authentication_onelogin",
+      "target": "vnd_infrastructure_heroku",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.8343449048836481,
+      "metadata": {
+        "lastVerified": "2025-07-04",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_027",
+      "source": "vnd_authentication_onelogin",
+      "target": "vnd_infrastructure_aws_ec2",
+      "type": "depends_on",
+      "category": "authentication",
+      "strength": 0.7597958519927864,
+      "metadata": {
+        "lastVerified": "2025-07-16",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_028",
+      "source": "vnd_payment_stripe",
+      "target": "vnd_data_cassandra",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.6481566225053559,
+      "metadata": {
+        "lastVerified": "2025-03-23",
+        "dataVolume": "medium",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_029",
+      "source": "vnd_payment_stripe",
+      "target": "vnd_data_aws_s3",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.7679193731335322,
+      "metadata": {
+        "lastVerified": "2025-11-17",
+        "dataVolume": "high",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_030",
+      "source": "vnd_payment_stripe",
+      "target": "vnd_api_zendesk_api",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.44764040677373745,
+      "metadata": {
+        "lastVerified": "2025-01-16",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_031",
+      "source": "vnd_payment_stripe",
+      "target": "vnd_api_mailgun",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.4753902433449862,
+      "metadata": {
+        "lastVerified": "2025-07-17",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_032",
+      "source": "vnd_payment_stripe",
+      "target": "vnd_api_docusign_api",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.3898553558880353,
+      "metadata": {
+        "lastVerified": "2025-05-07",
+        "dataVolume": "high",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_033",
+      "source": "vnd_payment_paypal",
+      "target": "vnd_data_aws_s3",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.7178445181751006,
+      "metadata": {
+        "lastVerified": "2025-03-26",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_034",
+      "source": "vnd_payment_paypal",
+      "target": "vnd_api_hubspot_api",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.5050437060207011,
+      "metadata": {
+        "lastVerified": "2025-05-16",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_035",
+      "source": "vnd_payment_square",
+      "target": "vnd_api_intercom_api",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.7826827424223837,
+      "metadata": {
+        "lastVerified": "2025-01-08",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_036",
+      "source": "vnd_payment_square",
+      "target": "vnd_api_shopify_api",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.7992596815928797,
+      "metadata": {
+        "lastVerified": "2025-01-27",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_037",
+      "source": "vnd_payment_adyen",
+      "target": "vnd_data_aws_s3",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.5890096893283703,
+      "metadata": {
+        "lastVerified": "2025-02-11",
+        "dataVolume": "medium",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_038",
+      "source": "vnd_payment_adyen",
+      "target": "vnd_data_google_cloud_storage",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.5963095998929573,
+      "metadata": {
+        "lastVerified": "2025-02-08",
+        "dataVolume": "low",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_039",
+      "source": "vnd_payment_adyen",
+      "target": "vnd_data_elasticsearch_cloud",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.6012583945608635,
+      "metadata": {
+        "lastVerified": "2025-02-10",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_040",
+      "source": "vnd_payment_adyen",
+      "target": "vnd_api_mailgun",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.7278359933507696,
+      "metadata": {
+        "lastVerified": "2025-08-18",
+        "dataVolume": "high",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_041",
+      "source": "vnd_payment_adyen",
+      "target": "vnd_api_intercom_api",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.48529427599189523,
+      "metadata": {
+        "lastVerified": "2025-07-14",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_042",
+      "source": "vnd_payment_braintree",
+      "target": "vnd_data_azure_blob",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.7983103567223335,
+      "metadata": {
+        "lastVerified": "2025-05-18",
+        "dataVolume": "medium",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_043",
+      "source": "vnd_payment_braintree",
+      "target": "vnd_api_salesforce_api",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.34321749944109436,
+      "metadata": {
+        "lastVerified": "2025-09-17",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_044",
+      "source": "vnd_payment_klarna",
+      "target": "vnd_data_databricks",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.5701566815490792,
+      "metadata": {
+        "lastVerified": "2025-09-14",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_045",
+      "source": "vnd_payment_klarna",
+      "target": "vnd_api_dropbox_api",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.7125856123491523,
+      "metadata": {
+        "lastVerified": "2025-07-19",
+        "dataVolume": "medium",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_046",
+      "source": "vnd_payment_klarna",
+      "target": "vnd_api_github_api",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.5588976375392077,
+      "metadata": {
+        "lastVerified": "2025-04-01",
+        "dataVolume": "low",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_047",
+      "source": "vnd_payment_worldpay",
+      "target": "vnd_api_sendgrid",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.946452480811556,
+      "metadata": {
+        "lastVerified": "2025-10-06",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_048",
+      "source": "vnd_payment_authorizenet",
+      "target": "vnd_data_cassandra",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.40988033398864787,
+      "metadata": {
+        "lastVerified": "2025-11-25",
+        "dataVolume": "high",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_049",
+      "source": "vnd_payment_authorizenet",
+      "target": "vnd_data_mongodb_atlas",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.6353977021644002,
+      "metadata": {
+        "lastVerified": "2025-12-12",
+        "dataVolume": "high",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_050",
+      "source": "vnd_payment_authorizenet",
+      "target": "vnd_data_google_cloud_storage",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.4617378019995682,
+      "metadata": {
+        "lastVerified": "2025-05-23",
+        "dataVolume": "high",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_051",
+      "source": "vnd_payment_authorizenet",
+      "target": "vnd_api_zendesk_api",
+      "type": "integrates_with",
+      "category": "data_flow",
+      "strength": 0.5476053611609943,
+      "metadata": {
+        "lastVerified": "2025-08-27",
+        "dataVolume": "high",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_052",
+      "source": "vnd_data_google_cloud_storage",
+      "target": "vnd_infrastructure_fastly",
+      "type": "depends_on",
+      "category": "infrastructure",
+      "strength": 0.5256198764783957,
+      "metadata": {
+        "lastVerified": "2025-03-13",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_053",
+      "source": "vnd_data_mongodb_atlas",
+      "target": "vnd_infrastructure_digitalocean",
+      "type": "depends_on",
+      "category": "infrastructure",
+      "strength": 0.5270780704166355,
+      "metadata": {
+        "lastVerified": "2025-09-25",
+        "dataVolume": "low",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_054",
+      "source": "vnd_data_postgresql_cloud",
+      "target": "vnd_infrastructure_cloudflare",
+      "type": "depends_on",
+      "category": "infrastructure",
+      "strength": 0.9356995933580105,
+      "metadata": {
+        "lastVerified": "2025-03-07",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_055",
+      "source": "vnd_data_redis_cloud",
+      "target": "vnd_infrastructure_heroku",
+      "type": "depends_on",
+      "category": "infrastructure",
+      "strength": 0.7789303565208983,
+      "metadata": {
+        "lastVerified": "2025-07-15",
+        "dataVolume": "high",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_056",
+      "source": "vnd_data_elasticsearch_cloud",
+      "target": "vnd_infrastructure_heroku",
+      "type": "depends_on",
+      "category": "infrastructure",
+      "strength": 0.6341550219196198,
+      "metadata": {
+        "lastVerified": "2025-06-20",
+        "dataVolume": "low",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_057",
+      "source": "vnd_data_elasticsearch_cloud",
+      "target": "vnd_infrastructure_aws_ec2",
+      "type": "depends_on",
+      "category": "infrastructure",
+      "strength": 0.9027269333193311,
+      "metadata": {
+        "lastVerified": "2025-06-21",
+        "dataVolume": "medium",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_058",
+      "source": "vnd_data_elasticsearch_cloud",
+      "target": "vnd_infrastructure_linode",
+      "type": "depends_on",
+      "category": "infrastructure",
+      "strength": 0.47004963613821604,
+      "metadata": {
+        "lastVerified": "2025-12-05",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_059",
+      "source": "vnd_data_databricks",
+      "target": "vnd_infrastructure_cloudflare",
+      "type": "depends_on",
+      "category": "infrastructure",
+      "strength": 0.8737245082174772,
+      "metadata": {
+        "lastVerified": "2025-11-25",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_060",
+      "source": "vnd_data_bigquery",
+      "target": "vnd_infrastructure_digitalocean",
+      "type": "depends_on",
+      "category": "infrastructure",
+      "strength": 0.748273182630809,
+      "metadata": {
+        "lastVerified": "2025-05-07",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_061",
+      "source": "vnd_data_cassandra",
+      "target": "vnd_infrastructure_vercel",
+      "type": "depends_on",
+      "category": "infrastructure",
+      "strength": 0.719913667678192,
+      "metadata": {
+        "lastVerified": "2025-05-15",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_062",
+      "source": "vnd_api_twilio",
+      "target": "vnd_authentication_ping_identity",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.5667976502157869,
+      "metadata": {
+        "lastVerified": "2025-04-04",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_063",
+      "source": "vnd_api_twilio",
+      "target": "vnd_infrastructure_digitalocean",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.7547711926546231,
+      "metadata": {
+        "lastVerified": "2025-08-26",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_064",
+      "source": "vnd_api_sendgrid",
+      "target": "vnd_data_redis_cloud",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.7444635697801025,
+      "metadata": {
+        "lastVerified": "2025-08-13",
+        "dataVolume": "medium",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_065",
+      "source": "vnd_api_sendgrid",
+      "target": "vnd_authentication_onelogin",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 1.0,
+      "metadata": {
+        "lastVerified": "2025-12-10",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_066",
+      "source": "vnd_api_sendgrid",
+      "target": "vnd_infrastructure_fastly",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.584179080310557,
+      "metadata": {
+        "lastVerified": "2025-06-06",
+        "dataVolume": "medium",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_067",
+      "source": "vnd_api_mailgun",
+      "target": "vnd_data_aws_s3",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.8617110933707712,
+      "metadata": {
+        "lastVerified": "2025-05-15",
+        "dataVolume": "low",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_068",
+      "source": "vnd_api_mailgun",
+      "target": "vnd_infrastructure_heroku",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.6702515592520738,
+      "metadata": {
+        "lastVerified": "2025-08-24",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_069",
+      "source": "vnd_api_mailgun",
+      "target": "vnd_infrastructure_cloudflare",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.7747759907323089,
+      "metadata": {
+        "lastVerified": "2025-02-03",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_070",
+      "source": "vnd_api_slack_api",
+      "target": "vnd_authentication_okta",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.5389025967230211,
+      "metadata": {
+        "lastVerified": "2025-12-21",
+        "dataVolume": "high",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_071",
+      "source": "vnd_api_slack_api",
+      "target": "vnd_authentication_ping_identity",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.6774552488771887,
+      "metadata": {
+        "lastVerified": "2025-11-27",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_072",
+      "source": "vnd_api_slack_api",
+      "target": "vnd_authentication_auth0",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.5796743486138988,
+      "metadata": {
+        "lastVerified": "2025-01-05",
+        "dataVolume": "medium",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_073",
+      "source": "vnd_api_github_api",
+      "target": "vnd_authentication_ping_identity",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.5955112624529348,
+      "metadata": {
+        "lastVerified": "2025-06-24",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_074",
+      "source": "vnd_api_google_maps",
+      "target": "vnd_data_redshift",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.6898794666383682,
+      "metadata": {
+        "lastVerified": "2025-10-07",
+        "dataVolume": "high",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_075",
+      "source": "vnd_api_google_maps",
+      "target": "vnd_authentication_auth0",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.33625308237436585,
+      "metadata": {
+        "lastVerified": "2025-11-12",
+        "dataVolume": "low",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_076",
+      "source": "vnd_api_google_maps",
+      "target": "vnd_infrastructure_fastly",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.4524631495331387,
+      "metadata": {
+        "lastVerified": "2025-03-09",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_077",
+      "source": "vnd_api_zoom_api",
+      "target": "vnd_infrastructure_digitalocean",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.8599340634656176,
+      "metadata": {
+        "lastVerified": "2025-10-13",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_078",
+      "source": "vnd_api_salesforce_api",
+      "target": "vnd_data_google_cloud_storage",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.7093287246106869,
+      "metadata": {
+        "lastVerified": "2025-03-09",
+        "dataVolume": "low",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_079",
+      "source": "vnd_api_salesforce_api",
+      "target": "vnd_data_redshift",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.6898211478633027,
+      "metadata": {
+        "lastVerified": "2025-08-07",
+        "dataVolume": "high",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_080",
+      "source": "vnd_api_salesforce_api",
+      "target": "vnd_authentication_okta",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.545882602246684,
+      "metadata": {
+        "lastVerified": "2025-12-02",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_081",
+      "source": "vnd_api_salesforce_api",
+      "target": "vnd_authentication_onelogin",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 1.0,
+      "metadata": {
+        "lastVerified": "2025-10-29",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_082",
+      "source": "vnd_api_salesforce_api",
+      "target": "vnd_infrastructure_aws_ec2",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.8644744052812882,
+      "metadata": {
+        "lastVerified": "2025-01-11",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_083",
+      "source": "vnd_api_hubspot_api",
+      "target": "vnd_data_redis_cloud",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.24223559778741294,
+      "metadata": {
+        "lastVerified": "2025-11-11",
+        "dataVolume": "high",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_084",
+      "source": "vnd_api_hubspot_api",
+      "target": "vnd_data_google_cloud_storage",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.4590482852563794,
+      "metadata": {
+        "lastVerified": "2025-12-11",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_085",
+      "source": "vnd_api_hubspot_api",
+      "target": "vnd_authentication_okta",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 1.0,
+      "metadata": {
+        "lastVerified": "2025-03-20",
+        "dataVolume": "high",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_086",
+      "source": "vnd_api_hubspot_api",
+      "target": "vnd_infrastructure_heroku",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.6506941912672725,
+      "metadata": {
+        "lastVerified": "2025-06-17",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_087",
+      "source": "vnd_api_intercom_api",
+      "target": "vnd_data_snowflake",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.6003083128208934,
+      "metadata": {
+        "lastVerified": "2025-01-13",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_088",
+      "source": "vnd_api_intercom_api",
+      "target": "vnd_infrastructure_digitalocean",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.4365512895797389,
+      "metadata": {
+        "lastVerified": "2025-01-23",
+        "dataVolume": "low",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_089",
+      "source": "vnd_api_shopify_api",
+      "target": "vnd_authentication_onelogin",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.6286366409653227,
+      "metadata": {
+        "lastVerified": "2025-07-07",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_090",
+      "source": "vnd_api_shopify_api",
+      "target": "vnd_authentication_auth0",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.7569068695437298,
+      "metadata": {
+        "lastVerified": "2025-10-23",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_091",
+      "source": "vnd_api_shopify_api",
+      "target": "vnd_infrastructure_aws_ec2",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 1.0,
+      "metadata": {
+        "lastVerified": "2025-09-02",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_092",
+      "source": "vnd_api_docusign_api",
+      "target": "vnd_data_google_cloud_storage",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.5901125906985001,
+      "metadata": {
+        "lastVerified": "2025-02-18",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_093",
+      "source": "vnd_api_docusign_api",
+      "target": "vnd_authentication_okta",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.7626792802795724,
+      "metadata": {
+        "lastVerified": "2025-01-12",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_094",
+      "source": "vnd_api_docusign_api",
+      "target": "vnd_authentication_ping_identity",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.5151360604918164,
+      "metadata": {
+        "lastVerified": "2025-07-21",
+        "dataVolume": "medium",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_095",
+      "source": "vnd_api_docusign_api",
+      "target": "vnd_infrastructure_netlify",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.7123029191047913,
+      "metadata": {
+        "lastVerified": "2025-09-21",
+        "dataVolume": "medium",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_096",
+      "source": "vnd_api_docusign_api",
+      "target": "vnd_infrastructure_vercel",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.6608139961780991,
+      "metadata": {
+        "lastVerified": "2025-07-03",
+        "dataVolume": "high",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_097",
+      "source": "vnd_api_adobe_api",
+      "target": "vnd_authentication_ping_identity",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.5873060165243432,
+      "metadata": {
+        "lastVerified": "2025-05-14",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_098",
+      "source": "vnd_api_dropbox_api",
+      "target": "vnd_authentication_microsoft_azure_ad",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.77789024044968,
+      "metadata": {
+        "lastVerified": "2025-03-20",
+        "dataVolume": "high",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_099",
+      "source": "vnd_api_dropbox_api",
+      "target": "vnd_authentication_onelogin",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.908234132451909,
+      "metadata": {
+        "lastVerified": "2025-07-26",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_100",
+      "source": "vnd_api_dropbox_api",
+      "target": "vnd_infrastructure_heroku",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.5607228906681849,
+      "metadata": {
+        "lastVerified": "2025-09-18",
+        "dataVolume": "medium",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_101",
+      "source": "vnd_api_dropbox_api",
+      "target": "vnd_infrastructure_azure_vms",
+      "type": "integrates_with",
+      "category": "api_call",
+      "strength": 0.7266297493477246,
+      "metadata": {
+        "lastVerified": "2025-07-09",
+        "dataVolume": "high",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_102",
+      "source": "vnd_infrastructure_google_compute",
+      "target": "vnd_data_redshift",
+      "type": "supplies",
+      "category": "infrastructure",
+      "strength": 0.5057856225705054,
+      "metadata": {
+        "lastVerified": "2024-12-30",
+        "dataVolume": "high",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_103",
+      "source": "vnd_infrastructure_azure_vms",
+      "target": "vnd_data_bigquery",
+      "type": "supplies",
+      "category": "infrastructure",
+      "strength": 0.693112982691857,
+      "metadata": {
+        "lastVerified": "2025-06-13",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_104",
+      "source": "vnd_infrastructure_digitalocean",
+      "target": "vnd_data_elasticsearch_cloud",
+      "type": "supplies",
+      "category": "infrastructure",
+      "strength": 0.6662674014169445,
+      "metadata": {
+        "lastVerified": "2025-05-22",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_105",
+      "source": "vnd_infrastructure_azure_vms",
+      "target": "vnd_api_shopify_api",
+      "type": "integrates_with",
+      "category": "cross_category",
+      "strength": 0.5658982158845707,
+      "metadata": {
+        "lastVerified": "2025-07-30",
+        "dataVolume": "high",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_106",
+      "source": "vnd_data_cassandra",
+      "target": "vnd_payment_adyen",
+      "type": "integrates_with",
+      "category": "cross_category",
+      "strength": 0.6019434699773071,
+      "metadata": {
+        "lastVerified": "2025-08-15",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_107",
+      "source": "vnd_infrastructure_google_compute",
+      "target": "vnd_payment_paypal",
+      "type": "integrates_with",
+      "category": "cross_category",
+      "strength": 0.6465997161844171,
+      "metadata": {
+        "lastVerified": "2025-06-17",
+        "dataVolume": "medium",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_108",
+      "source": "vnd_api_intercom_api",
+      "target": "vnd_infrastructure_vercel",
+      "type": "integrates_with",
+      "category": "cross_category",
+      "strength": 0.790341168069234,
+      "metadata": {
+        "lastVerified": "2025-11-16",
+        "dataVolume": "medium",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_109",
+      "source": "vnd_authentication_microsoft_azure_ad",
+      "target": "vnd_infrastructure_cloudflare",
+      "type": "integrates_with",
+      "category": "cross_category",
+      "strength": 0.7503982152157165,
+      "metadata": {
+        "lastVerified": "2025-12-07",
+        "dataVolume": "medium",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_110",
+      "source": "vnd_infrastructure_google_compute",
+      "target": "vnd_data_mongodb_atlas",
+      "type": "integrates_with",
+      "category": "cross_category",
+      "strength": 0.7630365102749405,
+      "metadata": {
+        "lastVerified": "2025-04-07",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "dep_111",
+      "source": "vnd_api_salesforce_api",
+      "target": "vnd_payment_authorizenet",
+      "type": "integrates_with",
+      "category": "cross_category",
+      "strength": 0.314527872820765,
+      "metadata": {
+        "lastVerified": "2025-12-20",
+        "dataVolume": "medium",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_112",
+      "source": "vnd_api_hubspot_api",
+      "target": "vnd_authentication_microsoft_azure_ad",
+      "type": "integrates_with",
+      "category": "cross_category",
+      "strength": 0.41626109920256027,
+      "metadata": {
+        "lastVerified": "2025-03-08",
+        "dataVolume": "medium",
+        "criticality": "low"
+      }
+    },
+    {
+      "id": "dep_113",
+      "source": "vnd_data_databricks",
+      "target": "vnd_authentication_auth0",
+      "type": "integrates_with",
+      "category": "cross_category",
+      "strength": 0.2324167064378213,
+      "metadata": {
+        "lastVerified": "2025-10-15",
+        "dataVolume": "low",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_114",
+      "source": "vnd_api_github_api",
+      "target": "vnd_authentication_onelogin",
+      "type": "integrates_with",
+      "category": "cross_category",
+      "strength": 0.9349789046727086,
+      "metadata": {
+        "lastVerified": "2025-12-22",
+        "dataVolume": "medium",
+        "criticality": "medium"
+      }
+    },
+    {
+      "id": "dep_115",
+      "source": "vnd_infrastructure_cloudflare",
+      "target": "vnd_authentication_auth0",
+      "type": "integrates_with",
+      "category": "cross_category",
+      "strength": 0.8059892016990702,
+      "metadata": {
+        "lastVerified": "2025-08-05",
+        "dataVolume": "low",
+        "criticality": "high"
+      }
+    }
+  ],
+  "metadata": {
+    "generated_at": "2025-12-26T13:16:20.593137",
+    "total_vendors": 50,
+    "total_dependencies": 115,
+    "categories": [
+      "authentication",
+      "payment",
+      "data",
+      "api",
+      "infrastructure"
+    ]
+  }
+}

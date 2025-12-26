@@ -1,0 +1,56 @@
+[
+  {
+    "id": "scenario_1",
+    "name": "Critical Authentication Compromise",
+    "description": "Compromise of primary authentication provider",
+    "initial_compromised": [
+      "vnd_authentication_onelogin"
+    ],
+    "severity": "critical",
+    "created_at": "2025-12-26T13:16:20.607288"
+  },
+  {
+    "id": "scenario_2",
+    "name": "Payment System Breach",
+    "description": "Breach of payment processing infrastructure",
+    "initial_compromised": [
+      "vnd_payment_adyen",
+      "vnd_payment_worldpay"
+    ],
+    "severity": "high",
+    "created_at": "2025-12-26T13:16:20.607628"
+  },
+  {
+    "id": "scenario_3",
+    "name": "Data Storage Compromise",
+    "description": "Compromise of critical data storage systems",
+    "initial_compromised": [
+      "vnd_data_postgresql_cloud",
+      "vnd_data_snowflake"
+    ],
+    "severity": "high",
+    "created_at": "2025-12-26T13:16:20.607864"
+  },
+  {
+    "id": "scenario_4",
+    "name": "API Integration Attack",
+    "description": "Coordinated attack through API integrations",
+    "initial_compromised": [
+      "vnd_api_sendgrid",
+      "vnd_api_twilio",
+      "vnd_api_mailgun"
+    ],
+    "severity": "medium",
+    "created_at": "2025-12-26T13:16:20.607888"
+  },
+  {
+    "id": "scenario_5",
+    "name": "Infrastructure Failure",
+    "description": "Critical infrastructure provider compromise",
+    "initial_compromised": [
+      "vnd_infrastructure_aws_ec2"
+    ],
+    "severity": "high",
+    "created_at": "2025-12-26T13:16:20.607961"
+  }
+]

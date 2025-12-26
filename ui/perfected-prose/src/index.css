@@ -1,0 +1,440 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GUARDIAN AI — MIDNIGHT INTELLIGENCE DESIGN SYSTEM */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    /* ============================================
+       FOUNDATION PALETTE - DEEP SPACE
+       ============================================ */
+    
+    /* Background Layers (Depth Through Elevation) */
+    --background: 220 26% 5%;           /* #0A0E13 - Deep space foundation */
+    --foreground: 210 40% 98%;          /* #F9FAFB - Primary text */
+    
+    --card: 222 47% 11%;                /* #111827 - Elevated surface 1 */
+    --card-foreground: 210 40% 98%;     /* #F9FAFB */
+    
+    --popover: 215 28% 17%;             /* #1E293B - Elevated surface 2 */
+    --popover-foreground: 210 40% 98%;
+    
+    /* Surface Elevations */
+    --surface-1: 222 47% 11%;           /* #111827 - 1dp elevation */
+    --surface-2: 215 28% 17%;           /* #1E293B - 2dp elevation */
+    --surface-3: 215 19% 35%;           /* #334155 - 3dp elevation */
+    --surface-4: 215 16% 47%;           /* #475569 - 4dp elevation */
+    
+    /* ============================================
+       SEMANTIC INTELLIGENCE COLORS
+       ============================================ */
+    
+    /* Primary Accent - Indigo Intelligence */
+    --primary: 239 84% 67%;             /* #6366F1 - indigo-500 */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 239 91% 75%;        /* #818CF8 - indigo-400 */
+    
+    /* Secondary */
+    --secondary: 215 28% 17%;           /* #1E293B */
+    --secondary-foreground: 210 40% 98%;
+    
+    /* Muted */
+    --muted: 215 28% 17%;               /* #1E293B */
+    --muted-foreground: 217 19% 62%;    /* #9CA3AF - gray-400 */
+    
+    /* Accent */
+    --accent: 215 19% 35%;              /* #334155 */
+    --accent-foreground: 210 40% 98%;
+    
+    /* Critical/Danger (Compromised States) */
+    --destructive: 0 72% 51%;           /* #DC2626 - red-600 */
+    --destructive-foreground: 210 40% 98%;
+    --critical: 0 72% 51%;              /* #DC2626 */
+    --critical-dark: 0 74% 35%;         /* #991B1B - red-800 */
+    --critical-light: 0 94% 82%;        /* #FCA5A5 - red-300 */
+    
+    /* Warning/Propagation */
+    --warning: 38 92% 50%;              /* #F59E0B - amber-500 */
+    --warning-dark: 32 95% 44%;         /* #D97706 - amber-600 */
+    --warning-light: 48 96% 69%;        /* #FCD34D - amber-300 */
+    
+    /* Success/Secure */
+    --success: 160 84% 39%;             /* #10B981 - emerald-500 */
+    --success-dark: 161 94% 30%;        /* #059669 - emerald-600 */
+    --success-light: 160 84% 73%;       /* #6EE7B7 - emerald-300 */
+    
+    /* Info/Neutral */
+    --info: 217 91% 60%;                /* #3B82F6 - blue-500 */
+    --info-dark: 221 83% 53%;           /* #2563EB - blue-600 */
+    --info-light: 213 97% 87%;          /* #93C5FD - blue-300 */
+    
+    /* ============================================
+       NEUTRAL GRAY SCALE
+       ============================================ */
+    --text-primary: 210 40% 98%;        /* #F9FAFB - gray-50 */
+    --text-secondary: 213 27% 84%;      /* #D1D5DB - gray-300 */
+    --text-tertiary: 218 11% 65%;       /* #9CA3AF - gray-400 */
+    --text-disabled: 217 10% 45%;       /* #6B7280 - gray-500 */
+    
+    /* Borders */
+    --border: 0 0% 100% / 0.05;         /* Subtle divisions */
+    --border-medium: 0 0% 100% / 0.1;   /* Clear boundaries */
+    --border-heavy: 0 0% 100% / 0.2;    /* Emphasis */
+    --input: 215 28% 17%;
+    --ring: 239 84% 67%;
+    
+    --radius: 0.5rem;
+    
+    /* ============================================
+       SIDEBAR VARIABLES
+       ============================================ */
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 213 27% 84%;
+    --sidebar-primary: 239 84% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 19% 35%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 0 0% 100% / 0.05;
+    --sidebar-ring: 239 84% 67%;
+    
+    /* ============================================
+       GRADIENT DEFINITIONS
+       ============================================ */
+    --gradient-primary: linear-gradient(135deg, hsl(239 84% 67%), hsl(243 75% 59%));
+    --gradient-danger: linear-gradient(135deg, hsl(0 72% 51%), hsl(0 74% 35%));
+    --gradient-warning: linear-gradient(135deg, hsl(38 92% 50%), hsl(32 95% 44%));
+    --gradient-success: linear-gradient(135deg, hsl(160 84% 39%), hsl(161 94% 30%));
+    --gradient-mesh: radial-gradient(at 40% 20%, hsla(239, 84%, 67%, 0.08) 0px, transparent 50%),
+                     radial-gradient(at 80% 80%, hsla(330, 79%, 60%, 0.05) 0px, transparent 50%);
+    
+    /* ============================================
+       SHADOWS
+       ============================================ */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.5);
+    --shadow-glow-primary: 0 0 40px hsla(239, 84%, 67%, 0.3);
+    --shadow-glow-danger: 0 0 20px hsla(0, 72%, 51%, 0.4);
+    --shadow-glow-warning: 0 0 15px hsla(38, 92%, 50%, 0.35);
+    --shadow-glow-success: 0 0 15px hsla(160, 84%, 39%, 0.3);
+  }
+
+  /* No dark mode override needed - this IS the dark theme */
+  .dark {
+    /* Same as root - Midnight Intelligence is inherently dark */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: -0.011em;
+    line-height: 1.7;
+  }
+  
+  /* Typography Scale - Fluid */
+  h1 {
+    @apply text-4xl font-bold tracking-tight;
+    line-height: 1.2;
+    letter-spacing: -0.022em;
+  }
+  
+  h2 {
+    @apply text-3xl font-bold tracking-tight;
+    line-height: 1.2;
+    letter-spacing: -0.022em;
+  }
+  
+  h3 {
+    @apply text-2xl font-semibold;
+    line-height: 1.2;
+    letter-spacing: -0.022em;
+  }
+  
+  h4 {
+    @apply text-xl font-semibold;
+    line-height: 1.3;
+  }
+  
+  h5 {
+    @apply text-lg font-medium;
+    line-height: 1.4;
+  }
+  
+  /* Monospace for technical data */
+  code, .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    letter-spacing: 0;
+    line-height: 1.6;
+  }
+}
+
+@layer utilities {
+  /* Animation Timing Functions (Sacred Easing) */
+  .ease-standard {
+    transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
+  .ease-entrance {
+    transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+  }
+  
+  .ease-exit {
+    transition-timing-function: cubic-bezier(0.4, 0.0, 1, 1);
+  }
+  
+  .ease-elastic {
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  /* Backdrop with blur */
+  .backdrop-blur-modal {
+    backdrop-filter: blur(8px);
+  }
+  
+  /* Custom Scrollbar */
+  .scrollbar-custom {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  }
+  
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+  
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Mesh gradient background */
+  .bg-mesh {
+    background: var(--gradient-mesh);
+  }
+  
+  /* Text gradient */
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: var(--shadow-glow-primary);
+  }
+  
+  .glow-danger {
+    box-shadow: var(--shadow-glow-danger);
+  }
+  
+  .glow-warning {
+    box-shadow: var(--shadow-glow-warning);
+  }
+  
+  .glow-success {
+    box-shadow: var(--shadow-glow-success);
+  }
+}
+
+/* ============================================
+   KEYFRAME ANIMATIONS
+   ============================================ */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-fade {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+}
+
+@keyframes count-up {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in-up {
+  animation: fade-in-up 350ms var(--ease-entrance, cubic-bezier(0.0, 0.0, 0.2, 1)) forwards;
+}
+
+.animate-scale-fade {
+  animation: scale-fade 250ms var(--ease-entrance, cubic-bezier(0.0, 0.0, 0.2, 1)) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 350ms var(--ease-standard, cubic-bezier(0.4, 0.0, 0.2, 1)) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 350ms var(--ease-standard, cubic-bezier(0.4, 0.0, 0.2, 1)) forwards;
+}
+
+.animate-slide-down {
+  animation: slide-down 300ms var(--ease-entrance, cubic-bezier(0.0, 0.0, 0.2, 1)) forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1500ms infinite linear;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2000ms infinite ease-in-out;
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 800ms infinite ease-in-out;
+}
+
+.animate-shake {
+  animation: shake 400ms ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 800ms linear infinite;
+}
+
+/* Stagger delays for children */
+.stagger-1 { animation-delay: 50ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 150ms; }
+.stagger-4 { animation-delay: 200ms; }
+.stagger-5 { animation-delay: 250ms; }
+.stagger-6 { animation-delay: 300ms; }
+.stagger-7 { animation-delay: 350ms; }
+.stagger-8 { animation-delay: 400ms; }
+
+/* Focus styles */
+.focus-ring {
+  @apply outline-none ring-offset-2 ring-offset-background focus-visible:ring-2 focus-visible:ring-primary;
+}

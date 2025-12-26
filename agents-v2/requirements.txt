@@ -11,9 +11,14 @@ google-adk>=1.0.0
 # Google AI Platform
 google-generativeai>=0.3.0
 
-# Optional: For web interface
-fastapi>=0.100.0
-uvicorn>=0.23.0
+# Vertex AI Deployment
+google-cloud-aiplatform>=1.38.0
+google-cloud-storage>=2.10.0
+
+# HTTP Server for Vertex AI (Flask or FastAPI)
+flask>=2.3.0
+# Alternative: fastapi>=0.100.0
+# Alternative: uvicorn>=0.23.0
 
 # Development tools
 pytest>=7.4.0

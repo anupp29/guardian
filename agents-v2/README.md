@@ -353,11 +353,44 @@ For each candidate mitigation:
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd guardian/v2
+cd guardian/agents-v2
 
 # Install dependencies
 pip install -r requirements.txt
 ```
+
+## 🚀 Vertex AI Deployment
+
+**Ready for production deployment on Google Cloud Vertex AI!**
+
+### Quick Deploy
+
+```bash
+# 1. Configure environment
+cp env.example .env
+# Edit .env with your GCP_PROJECT_ID
+
+# 2. Deploy
+./deploy_vertex_ai.sh  # Linux/Mac
+# or
+.\deploy_vertex_ai.ps1  # Windows
+```
+
+### Documentation
+
+- **[Quick Start Guide](QUICKSTART_VERTEX_AI.md)** - Get deployed in 5 minutes
+- **[Full Deployment Guide](DEPLOYMENT.md)** - Complete deployment documentation
+- **[Deployment Summary](DEPLOYMENT_SUMMARY.md)** - Overview of deployment setup
+
+### Features
+
+✅ Production-ready Docker container  
+✅ Automated deployment scripts  
+✅ Health checks and monitoring  
+✅ Auto-scaling support  
+✅ Complete testing suite  
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for details.
 
 ### Dependencies
 

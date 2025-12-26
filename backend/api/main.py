@@ -6,6 +6,7 @@ from typing import List, Dict, Any, Optional
 import logging
 import asyncio
 import uuid
+import os
 from datetime import datetime
 
 # Import core Guardian AI components
@@ -19,7 +20,8 @@ from backend.core import (
     SupplyChainMonitor,
     create_monitoring_system,
     get_performance_tracker,
-    performance_monitor
+    performance_monitor,
+    get_explanation_service
 )
 
 # Setup logging
@@ -54,6 +56,7 @@ class AppState:
         self.gnn_engine = None
         self.monitor = None
         self.performance_tracker = None
+        self.explanation_service = None
         self.active_simulations = {}
         
     def initialize(self):
@@ -92,6 +95,15 @@ class AppState:
         except Exception as e:
             logger.warning(f"GNN initialization failed: {e}. Using fallback.")
             self.gnn_engine = None
+        
+        # Initialize explanation service (with optional Gemini AI)
+        try:
+            use_ai = os.getenv("USE_AI_EXPLANATIONS", "true").lower() == "true"
+            self.explanation_service = get_explanation_service(use_ai=use_ai)
+            logger.info(f"Explanation service initialized (AI: {use_ai})")
+        except Exception as e:
+            logger.warning(f"Explanation service initialization failed: {e}")
+            self.explanation_service = None
         
         logger.info("Guardian AI initialization complete")
 
@@ -256,6 +268,17 @@ async def get_risk_assessment():
             gnn_predictions
         )
         
+        # Generate explanation if available
+        explanation = None
+        if state.explanation_service:
+            try:
+                explanation = state.explanation_service.explain_risk_assessment(
+                    risk_metrics,
+                    state.supply_chain_graph
+                )
+            except Exception as e:
+                logger.warning(f"Risk explanation generation failed: {e}")
+        
         return JSONResponse(content={
             "success": True,
             "data": {
@@ -265,7 +288,8 @@ async def get_risk_assessment():
                 "single_point_failures": risk_metrics.single_point_failures,
                 "critical_path_count": risk_metrics.critical_path_count,
                 "vulnerability_density": risk_metrics.vulnerability_density,
-                "resilience_score": risk_metrics.resilience_score
+                "resilience_score": risk_metrics.resilience_score,
+                "explanation": explanation
             },
             "timestamp": datetime.now().isoformat()
         })
@@ -375,12 +399,42 @@ async def run_simulation(request: SimulationRequest, background_tasks: Backgroun
 
 @app.get("/api/simulation/{simulation_id}")
 async def get_simulation_result(simulation_id: str):
-    """Get simulation result by ID."""
+    """Get simulation result by ID with enhanced explanations."""
     try:
         if simulation_id not in state.active_simulations:
             raise HTTPException(status_code=404, detail="Simulation not found")
         
         result = state.active_simulations[simulation_id]
+        
+        # Generate enhanced explanation if available
+        explanation = None
+        if state.explanation_service and result.initial_compromised:
+            try:
+                vendor_id = result.initial_compromised[0]
+                vendor_name = state.supply_chain_graph.graph.nodes.get(vendor_id, {}).get('name', vendor_id)
+                
+                # Get risk profile
+                node_risks = state.risk_calculator.calculate_node_risk_profiles(state.supply_chain_graph)
+                risk_profile = node_risks.get(vendor_id)
+                
+                if risk_profile:
+                    explanation_result = state.explanation_service.explain_simulation_result(
+                        result,
+                        vendor_name,
+                        risk_profile,
+                        state.supply_chain_graph
+                    )
+                    explanation = {
+                        "summary": explanation_result.summary,
+                        "keyFindings": explanation_result.key_findings,
+                        "technicalDetails": explanation_result.technical_details,
+                        "businessImpact": explanation_result.business_impact,
+                        "estimatedRecovery": explanation_result.estimated_recovery
+                    }
+                    if explanation_result.recommendations:
+                        explanation["recommendations"] = explanation_result.recommendations
+            except Exception as e:
+                logger.warning(f"Explanation generation failed: {e}")
         
         return JSONResponse(content={
             "success": True,
@@ -394,13 +448,234 @@ async def get_simulation_result(simulation_id: str):
                 "final_metrics": result.final_metrics,
                 "mitigation_suggestions": result.mitigation_suggestions,
                 "initial_compromised": result.initial_compromised,
-                "final_compromised": result.final_compromised
+                "final_compromised": result.final_compromised,
+                "explanation": explanation
             },
             "timestamp": datetime.now().isoformat()
         })
         
     except Exception as e:
         logger.error(f"Simulation retrieval failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/explanation/risk-assessment")
+@performance_monitor
+async def get_risk_assessment_explanation():
+    """Get natural language explanation of overall risk assessment."""
+    try:
+        if not state.risk_calculator or not state.supply_chain_graph:
+            raise HTTPException(status_code=500, detail="Components not initialized")
+        
+        # Calculate risk metrics
+        risk_metrics = state.risk_calculator.calculate_comprehensive_risk(state.supply_chain_graph)
+        
+        # Generate explanation
+        explanation = None
+        if state.explanation_service:
+            try:
+                explanation = state.explanation_service.explain_risk_assessment(
+                    risk_metrics,
+                    state.supply_chain_graph
+                )
+            except Exception as e:
+                logger.warning(f"Risk explanation generation failed: {e}")
+        
+        return JSONResponse(content={
+            "success": True,
+            "data": {
+                "risk_metrics": {
+                    "overall_score": risk_metrics.overall_score,
+                    "tier_1_exposure": risk_metrics.tier_1_exposure,
+                    "cascade_potential": risk_metrics.cascade_potential,
+                    "single_point_failures": risk_metrics.single_point_failures,
+                    "critical_path_count": risk_metrics.critical_path_count,
+                    "vulnerability_density": risk_metrics.vulnerability_density,
+                    "resilience_score": risk_metrics.resilience_score
+                },
+                "explanation": explanation
+            },
+            "timestamp": datetime.now().isoformat()
+        })
+        
+    except Exception as e:
+        logger.error(f"Risk assessment explanation failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/simulation/scenarios")
+@performance_monitor
+async def get_risk_scenarios():
+    """Get multiple risk scenarios for top risky vendors (matches frontend capability)."""
+    try:
+        if not state.risk_calculator or not state.supply_chain_graph or not state.simulation_engine:
+            raise HTTPException(status_code=500, detail="Components not initialized")
+        
+        # Get GNN predictions if available
+        gnn_predictions = None
+        if state.gnn_engine:
+            try:
+                gnn_predictions = {
+                    'node_risk_scores': state.gnn_engine.predict_risk_scores(state.supply_chain_graph),
+                    'cascade_amplification': state.gnn_engine.predict_cascade_amplification(state.supply_chain_graph)
+                }
+            except Exception as e:
+                logger.warning(f"GNN prediction failed: {e}")
+        
+        # Calculate node risk profiles
+        node_risks = state.risk_calculator.calculate_node_risk_profiles(
+            state.supply_chain_graph,
+            gnn_predictions
+        )
+        
+        # Get top 5-8 most risky vendors
+        sorted_risks = sorted(
+            node_risks.items(),
+            key=lambda x: x[1].combined_risk,
+            reverse=True
+        )[:8]
+        
+        scenarios = []
+        
+        for idx, (vendor_id, risk_profile) in enumerate(sorted_risks):
+            # Run a quick simulation for this vendor
+            try:
+                sim_result = state.simulation_engine.run_simulation(
+                    [vendor_id],
+                    f"scenario_{vendor_id}"
+                )
+                
+                # Extract propagation paths from simulation steps
+                all_paths = []
+                for step in sim_result.steps:
+                    for path in step.propagation_paths:
+                        if len(path) >= 2:
+                            path_risk = 0.0
+                            # Calculate path risk (simplified)
+                            for i in range(len(path) - 1):
+                                edge_data = state.supply_chain_graph.graph.edges.get((path[i], path[i+1]), {})
+                                path_risk += edge_data.get('strength', 0.5)
+                            path_risk = min(1.0, path_risk / len(path))
+                            
+                            all_paths.append({
+                                "path": path,
+                                "delay": len(path) * 300,  # milliseconds
+                                "risk": path_risk
+                            })
+                
+                # Get vendor name
+                vendor_name = state.supply_chain_graph.graph.nodes.get(vendor_id, {}).get('name', vendor_id)
+                
+                # Determine severity
+                if risk_profile.risk_level.value == 'critical':
+                    severity = 'critical'
+                elif risk_profile.risk_level.value == 'high':
+                    severity = 'high'
+                elif risk_profile.risk_level.value == 'medium':
+                    severity = 'medium'
+                else:
+                    severity = 'low'
+                
+                # Build affected vendors list
+                affected_vendors = []
+                for step in sim_result.steps:
+                    for node in step.new_compromised:
+                        if node != vendor_id:
+                            # Find path from source
+                            path_from_source = [vendor_id]
+                            for path in step.propagation_paths:
+                                if node in path:
+                                    path_from_source = path[:path.index(node) + 1]
+                                    break
+                            
+                            impact_level = 'direct' if len(path_from_source) == 2 else \
+                                         'first_hop' if len(path_from_source) == 2 else \
+                                         'second_hop' if len(path_from_source) == 3 else 'third_hop'
+                            
+                            affected_vendors.append({
+                                "id": node,
+                                "status": "compromised" if node in sim_result.final_compromised else "affected",
+                                "impactLevel": impact_level,
+                                "pathFromSource": path_from_source
+                            })
+                
+                # Generate enhanced explanation using explanation service
+                explanation = None
+                if state.explanation_service:
+                    try:
+                        explanation_result = state.explanation_service.explain_simulation_result(
+                            sim_result,
+                            vendor_name,
+                            risk_profile,
+                            state.supply_chain_graph
+                        )
+                        explanation = {
+                            "summary": explanation_result.summary,
+                            "keyFindings": explanation_result.key_findings,
+                            "technicalDetails": explanation_result.technical_details,
+                            "businessImpact": explanation_result.business_impact,
+                            "estimatedRecovery": explanation_result.estimated_recovery or "4-6 hours with emergency protocols"
+                        }
+                        if explanation_result.recommendations:
+                            explanation["recommendations"] = explanation_result.recommendations
+                    except Exception as e:
+                        logger.warning(f"Explanation generation failed: {e}. Using fallback.")
+                
+                # Fallback to template if explanation service unavailable
+                if not explanation:
+                    explanation = {
+                        "summary": f"A compromise of {vendor_name} would cascade through {sim_result.total_affected} dependent vendors, affecting {risk_profile.risk_level.value} risk operations.",
+                        "keyFindings": [
+                            f"Blast radius: {sim_result.blast_radius} additional compromises",
+                            f"Cascade depth: {sim_result.cascade_depth} propagation waves",
+                            f"Risk level: {risk_profile.risk_level.value}",
+                            f"Critical paths identified: {sim_result.final_metrics.get('critical_path_count', 0)}"
+                        ],
+                        "technicalDetails": f"Compromise would propagate through {len(all_paths)} identified paths with average risk score of {risk_profile.combined_risk:.2f}.",
+                        "businessImpact": f"Estimated impact affects {sim_result.total_affected} vendors across the supply chain.",
+                        "estimatedRecovery": "4-6 hours with emergency protocols"
+                    }
+                
+                # Create scenario
+                scenario = {
+                    "id": f"sim_{idx+1:03d}",
+                    "title": f"{vendor_name} Compromise Scenario",
+                    "targetVendor": vendor_id,
+                    "severity": severity,
+                    "blastRadius": sim_result.blast_radius,
+                    "affectedVendors": affected_vendors[:20],  # Limit to top 20
+                    "propagationPaths": all_paths[:10],  # Top 10 paths
+                    "aiExplanation": explanation,
+                    "metricsChange": {
+                        "before": {
+                            "compromisedVendors": 0,
+                            "affectedServices": 0,
+                            "criticalPathCount": 0,
+                            "overallRisk": int(risk_profile.combined_risk * 100)
+                        },
+                        "after": {
+                            "compromisedVendors": len(sim_result.final_compromised),
+                            "affectedServices": sim_result.total_affected,
+                            "criticalPathCount": sim_result.final_metrics.get('critical_path_count', 0),
+                            "overallRisk": int(min(100, risk_profile.combined_risk * 100 + sim_result.blast_radius * 2))
+                        }
+                    },
+                    "timestamp": datetime.now().isoformat()
+                }
+                
+                scenarios.append(scenario)
+                
+            except Exception as e:
+                logger.warning(f"Failed to generate scenario for {vendor_id}: {e}")
+                continue
+        
+        return JSONResponse(content={
+            "success": True,
+            "data": scenarios,
+            "count": len(scenarios),
+            "timestamp": datetime.now().isoformat()
+        })
+        
+    except Exception as e:
+        logger.error(f"Risk scenarios generation failed: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/mitigation/strategies")

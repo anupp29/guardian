@@ -99,6 +99,12 @@ from .performance import (
     optimize_system_performance
 )
 
+from .explanation_service import (
+    ExplanationService,
+    ExplanationResult,
+    get_explanation_service
+)
+
 __version__ = "1.0.0"
 __author__ = "Guardian AI Team"
 
@@ -182,5 +188,10 @@ __all__ = [
     'cached',
     'get_performance_tracker',
     'get_global_cache',
-    'optimize_system_performance'
+    'optimize_system_performance',
+    
+    # Explanation Service
+    'ExplanationService',
+    'ExplanationResult',
+    'get_explanation_service'
 ]

@@ -13,8 +13,6 @@ import json
 from pathlib import Path
 
 # Set API key before importing agents
-os.environ["GOOGLE_API_KEY"] = "AIzaSyD-RG8mdgorx6n3rs6sHZLWdj4M_9ntkpg"
-os.environ["GEMINI_API_KEY"] = "AIzaSyD-RG8mdgorx6n3rs6sHZLWdj4M_9ntkpg"
 
 # Add parent directory to path
 sys.path.insert(0, str(Path(__file__).parent))
